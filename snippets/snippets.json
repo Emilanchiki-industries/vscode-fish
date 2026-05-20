@@ -11,12 +11,12 @@
   },
   "and": {
     "prefix": "and",
-    "description": "and operator",
+    "description": "run the second command just if the first one succeded",
     "body": "${1:first-expression}${2|; and, &&|} ${3:second-expression}"
   },
   "or": {
     "prefix": "or",
-    "description": "or operator",
+    "description": "run the second command just if the first one failed",
     "body": "${1:first-expression}${2|; or, \\|\\||} ${3:second-expression}"
   },
   "if": {
