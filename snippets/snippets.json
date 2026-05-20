@@ -246,8 +246,8 @@
     "body": ["for ${1:item} in ${2:expression}", "\t${3:command ...}", "end"]
   },
   "for-range": {
-    "prefix": "for-range",
-    "description": "for with range",
+    "prefix": ["for-range", "forr"],
+    "description": "iterate over the number [r]ange",
     "body": [
       "for ${1:item} in $(seq ${2:from} ${3:to})",
       "\t${4:command ...}",
@@ -255,8 +255,8 @@
     ]
   },
   "for-stepped-range": {
-    "prefix": "for-stepped-range",
-    "description": "for with stepped range",
+    "prefix": ["for-stepped-range", "forsr"],
+    "description": "iterate over the [s]tepped number [r]ange",
     "body": [
       "for ${1:item} in $(seq ${2:from} ${3:step} ${4:to})",
       "\t${5:command ...}",
@@ -264,8 +264,8 @@
     ]
   },
   "for-files": {
-    "prefix": "for-files",
-    "description": "for with files",
+    "prefix": ["for-files", "forf"],
+    "description": "iterate over [f]iles",
     "body": ["for ${1:item} in *.${3:extension}", "\t${4:command ...}", "end"]
   },
   "switch": {
