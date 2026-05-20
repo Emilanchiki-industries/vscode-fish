@@ -397,55 +397,70 @@
     "description": "string replacement with [r]egex ([a]ll)",
     "body": "string replace ${1|-a,--all|} ${2|-r,--regex|} -- '${3:pattern}' '${4:replacement}' ${5:argument ...}"
   },
-  "less": {
-    "prefix": "less",
-    "description": "number comparison ([l]ess [t]han])",
-    "body": "test \"${1:first-expression}\" -lt \"${2:second-expression}\""
+  "test-file-nt": {
+    "prefix": ["newer-than-file", "nt"],
+    "description": "test if the first file is newer, or the first file exists and the second doesn't",
+    "body": ["test \"${1:first-file}\" -nt \"${2:second-file}\""]
   },
-  "greater": {
-    "prefix": "greater",
-    "description": "number comparison ([g]reater [t]han])",
-    "body": "test \"${1:first-expression}\" -gt \"${2:second-expression}\""
+  "test-file-ot": {
+    "prefix": ["older-than-file", "ot"],
+    "description": "test if the second file is newer, or the second file exists and the first doesn't",
+    "body": ["test \"${1:first-file}\" -ot \"${2:second-file}\""]
+  },
+  "test-file-ef": {
+    "prefix": ["equal-files", "ef"],
+    "description": "test if two file references refer to the same one",
+    "body": ["test \"${1:first-file}\" -ef \"${2:second-file}\""]
+  },
+  "less-than": {
+    "prefix": ["less-than", "lt"],
+    "description": "test if the first number is [l]ess [t]han the second one",
+    "body": "test \"${1:first-number}\" -lt \"${2:second-number}\""
+  },
+  "greater-than": {
+    "prefix": ["greater-than", "gt"],
+    "description": "test if the first number is [g]reater [t]han the second one",
+    "body": "test \"${1:first-number}\" -gt \"${2:second-number}\""
   },
   "less-or-equal": {
-    "prefix": "less-or-equal",
-    "description": "number comparison ([l]ess or [e]qual to)",
-    "body": "test \"${1:first-expression}\" -le \"${2:second-expression}\""
+    "prefix": ["less-or-equal", "le"],
+    "description": "test if the first number is [l]ess than or [e]qual to the second one",
+    "body": "test \"${1:first-number}\" -le \"${2:second-number}\""
   },
   "greater-or-equal": {
-    "prefix": "greater-or-equal",
-    "description": "number comparison ([g]reater or [e]qual to)",
-    "body": "test \"${1:first-expression}\" -ge \"${2:second-expression}\""
+    "prefix": ["greater-or-equal", "ge"],
+    "description": "test if the first number is [g]reater than or [e]qual to the second one",
+    "body": "test \"${1:first-number}\" -ge \"${2:second-number}\""
   },
-  "equal": {
-    "prefix": "equal",
-    "description": "number comparison ([eq]ual to)",
-    "body": "test \"${1:first-expression}\" -eq \"${2:second-expression}\""
+  "equal-to": {
+    "prefix": ["equal-to", "eq"],
+    "description": "test if the first number is [eq]ual to the second one",
+    "body": "test \"${1:first-number}\" -eq \"${2:second-number}\""
   },
-  "not-equal": {
-    "prefix": "not-equal",
-    "description": "number comparison ([n]ot [e]qual to)",
-    "body": "test \"${1:first-expression}\" -ne \"${2:second-expression}\""
+  "not-equal-to": {
+    "prefix": ["not-equal-to", "ne"],
+    "description": "test if the first number is [n]ot [e]qual to the second one",
+    "body": "test \"${1:first-number}\" -ne \"${2:second-number}\""
   },
-  "string-equal": {
-    "prefix": "string-equal",
-    "description": "string comparison",
-    "body": "test \"${1:first-expression}\" = \"${2:second-expression}\""
+  "string-equal-to": {
+    "prefix": ["string-equal-to", "seq"],
+    "description": "test if the first [s]tring is [eq]ual to the second one",
+    "body": "test \"${1:first-string}\" = \"${2:second-string}\""
   },
-  "string-not-equal": {
-    "prefix": "string-not-equal",
-    "description": "string comparison",
-    "body": "test \"${1:first-expression}\" != \"${2:second-expression}\""
+  "string-not-equal-to": {
+    "prefix": ["string-not-equal-to", "sne"],
+    "description": "test if the first [s]tring is [n]ot [e]qual to the second one",
+    "body": "test \"${1:first-string}\" != \"${2:second-string}\""
   },
   "string-empty": {
-    "prefix": "string-empty",
-    "description": "string comparison (has [z]ero length)",
-    "body": "test -z \"${1:expression}\""
+    "prefix": ["string-empty", "z"],
+    "description": "test if the string has [z]ero characters inside it (empty)",
+    "body": "test -z \"${1:string}\""
   },
   "string-not-empty": {
-    "prefix": "string-not-empty",
-    "description": "string comparison ([n]ot empty)",
-    "body": "test -n \"${1:expression}\""
+    "prefix": ["string-not-empty", "n"],
+    "description": "test if the string is [n]ot empty",
+    "body": "test -n \"${1:string}\""
   },
   "defined": {
     "prefix": "defined",
