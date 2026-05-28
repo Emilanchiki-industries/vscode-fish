@@ -295,10 +295,6 @@
       "\t${2:command ...}",
       "end"
     ]
-      "while test -n \"${1:string}\"",
-      "\t${2:command ...}",
-      "end"
-    ]
   },
   "while-defined": {
     "prefix": ["while-defined", "wd"],
