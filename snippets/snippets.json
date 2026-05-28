@@ -737,6 +737,21 @@
     "description": "[ta]ke each n-th line in the specified range",
     "body": "sed ${1|-n,--quiet|} '${2:from},${3:to}p' | sed $1 '1~${4:step}p'"
   },
+  "set-color": {
+    "prefix": ["set-color", "color"],
+    "description": "color the following text",
+    "body": "(set_color ${1|black,red,green,yellow,blue,magenta,cyan,white,brblack,brred,brgreen,bryellow,brblue,brmagenta,brcyan,brwhite|})"
+  },
+  "set-background-color": {
+    "prefix": ["set-background-color", "bgcolor"],
+    "description": "color the following text [b]ack[g]round",
+    "body": "(set_color ${1|-b,--background|} ${2|black,red,green,yellow,blue,magenta,cyan,white,brblack,brred,brgreen,bryellow,brblue,brmagenta,brcyan,brwhite|})"
+  },
+  "reset-color": {
+    "prefix": ["reset-color", "recolor"],
+    "description": "reset the following text color to its default",
+    "body": "(set_color normal)"
+  },
   "comment": {
     "prefix": "comment",
     "description": "add a comment",
