@@ -140,6 +140,10 @@
     "body": [
       "if test -z \"${1:string}\"",
       "\t${2:command ...}",
+      "end"
+    ]
+  },
+  "if-string-not-empty": {
     "prefix": ["if-string-not-empty", "ifn"],
     "description": "check if the string is [n]ot empty and if true run the specified set of commands",
     "body": [
