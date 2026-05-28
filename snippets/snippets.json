@@ -611,23 +611,23 @@
   },
   "parse": {
     "prefix": "parse",
-    "description": "option parsing",
+    "description": "parse options with h/help and v/version included and brief program or function explanation",
     "body": [
       "argparse ${1|-n,--name|} ${2:name} 'h/help' 'v/version' ${3:option ...} -- \\$argv${4|; or, \\|\\||} return",
       "",
       "if set ${5|-q,--query|} _flag_help",
-      "\t${6:command ...}",
+      "\techo ${6:help}",
       "\treturn 0",
       "end",
       "if set $5 _flag_version",
-      "\t${7:command ...}",
+      "\techo '${7:major}.${8:minor}.${9:patch}'",
       "\treturn 0",
       "end"
     ]
   },
   "parse-with-functions": {
-    "prefix": "parse-with-functions",
-    "description": "option parsing",
+    "prefix": ["parse-with-functions", "parsef"],
+    "description": "parse options with h/help and v/version included via [f]unctions and detailed program or function explanation",
     "body": [
       "function help",
       "\techo 'Usage: ${6:explanation}",
@@ -653,6 +653,11 @@
       "\texit 0",
       "end"
     ]
+  },
+  "_flag": {
+    "prefix": ["_flag", "_f"],
+    "description": "refer to the specified flag",
+    "body": ["_flag_${1:flag}"]
   },
   "complete": {
     "prefix": "complete",
