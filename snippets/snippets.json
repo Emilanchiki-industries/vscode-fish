@@ -339,14 +339,82 @@
     "body": ["for ${1:item} in *.${2:extension}", "\t${3:command ...}", "end"]
   },
   "switch": {
-    "prefix": "switch",
-    "description": "switch operator",
+    "prefix": ["switch2", "sw2"],
+    "description": "find the first matching pattern out of 2 available (including the default fallback) and run the specified commands corresponding to it",
     "body": [
       "switch \"${1:expression}\"",
       "\tcase ${2:pattern}",
       "\t\t${3:command ...}",
       "\tcase '*'",
       "\t\t${4:command ...}",
+      "end"
+    ]
+  },
+  "switch3": {
+    "prefix": ["switch3", "sw3"],
+    "description": "find the first matching pattern out of 3 available (including the default fallback) and run the specified commands corresponding to it",
+    "body": [
+      "switch \"${1:expression}\"",
+      "\tcase ${2:pattern}",
+      "\t\t${3:command ...}",
+      "\tcase ${4:pattern}",
+      "\t\t${5:command ...}",
+      "\tcase '*'",
+      "\t\t${6:command ...}",
+      "end"
+    ]
+  },
+  "switch4": {
+    "prefix": ["switch4", "sw4"],
+    "description": "find the first matching pattern out of 4 available (including the default fallback) and run the specified commands corresponding to it",
+    "body": [
+      "switch \"${1:expression}\"",
+      "\tcase ${2:pattern}",
+      "\t\t${3:command ...}",
+      "\tcase ${4:pattern}",
+      "\t\t${5:command ...}",
+      "\tcase ${6:pattern}",
+      "\t\t${7:command ...}",
+      "\tcase '*'",
+      "\t\t${8:command ...}",
+      "end"
+    ]
+  },
+  "switch5": {
+    "prefix": ["switch5", "sw5"],
+    "description": "find the first matching pattern out of 5 available (including the default fallback) and run the specified commands corresponding to it",
+    "body": [
+      "switch \"${1:expression}\"",
+      "\tcase ${2:pattern}",
+      "\t\t${3:command ...}",
+      "\tcase ${4:pattern}",
+      "\t\t${5:command ...}",
+      "\tcase ${6:pattern}",
+      "\t\t${7:command ...}",
+      "\tcase ${8:pattern}",
+      "\t\t${9:command ...}",
+      "\tcase '*'",
+      "\t\t${10:command ...}",
+      "end"
+    ]
+  },
+  "switch6": {
+    "prefix": ["switch6", "sw6"],
+    "description": "find the first matching pattern out of 6 available (including the default fallback) and run the specified commands corresponding to it",
+    "body": [
+      "switch \"${1:expression}\"",
+      "\tcase ${2:pattern}",
+      "\t\t${3:command ...}",
+      "\tcase ${4:pattern}",
+      "\t\t${5:command ...}",
+      "\tcase ${6:pattern}",
+      "\t\t${7:command ...}",
+      "\tcase ${8:pattern}",
+      "\t\t${9:command ...}",
+      "\tcase ${10:pattern}",
+      "\t\t${11:command ...}",
+      "\tcase '*'",
+      "\t\t${12:command ...}",
       "end"
     ]
   },
