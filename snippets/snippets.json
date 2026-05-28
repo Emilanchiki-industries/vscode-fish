@@ -35,6 +35,33 @@
       "end"
     ]
   },
+  "if-file-newer-than": {
+    "prefix": ["if-file-newer-than", "ifnt"],
+    "description": "check if the first file is newer, or the first file exists and the second doesn't, and if true run the specified set of commands",
+    "body": [
+      "if test \"${1:first-file}\" -nt \"${2:second-file}\"",
+      "\t${3:command ...}",
+      "end"
+    ]
+  },
+  "if-file-older-than": {
+    "prefix": ["if-file-older-than", "ifot"],
+    "description": "check if the second file is newer, or the second file exists and the first doesn't, and if true run the specified set of commands",
+    "body": [
+      "if test \"${1:first-file}\" -ot \"${2:second-file}\"",
+      "\t${3:command ...}",
+      "end"
+    ]
+  },
+  "if-file-equal-to": {
+    "prefix": ["if-file-equal-to", "ifef"],
+    "description": "check if two file references refer to the same one, and if true run the specified set of commands",
+    "body": [
+      "if test \"${1:first-file}\" -ef \"${2:second-file}\"",
+      "\t${3:command ...}",
+      "end"
+    ]
+  },
   "if-less-than": {
     "prefix": ["if-less-than", "iflt"],
     "description": "check if the first number is [l]ess [t]han the second one and if true run the specified set of commands",
