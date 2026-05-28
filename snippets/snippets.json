@@ -734,7 +734,7 @@
   },
   "comment": {
     "prefix": "comment",
-    "description": "comment definition",
+    "description": "add a comment",
     "body": "# ${1:description}"
   }
 }
