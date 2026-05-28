@@ -466,22 +466,22 @@
   },
   "set": {
     "prefix": "set",
-    "description": "variable definition",
+    "description": "define or set a variable with the specified value",
     "body": "set ${1:variable} ${2:value}"
   },
   "set-index": {
-    "prefix": "set-index",
-    "description": "variable item modification at index",
+    "prefix": ["set-index", "seti"],
+    "description": "define or set a variable value with the specified [i]ndex",
     "body": "set ${1:variable}[${2:index}] ${3:value}"
   },
   "set-append": {
-    "prefix": "set-append",
-    "description": "variable item modification at index ([a]ppend)",
+    "prefix": ["set-append", "seta"],
+    "description": "append the value to the specified variable",
     "body": "set ${1|-a,--append|} ${2:variable} ${3:value}"
   },
   "set-prepend": {
-    "prefix": "set-prepend",
-    "description": "variable item modification at index ([p]repend)",
+    "prefix": ["set-prepend", "setp"],
+    "description": "prepend the value to the specified variable",
     "body": "set ${1|-p,--prepend|} ${2:variable} ${3:value}"
   },
   "string": {
