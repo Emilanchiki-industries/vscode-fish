@@ -21,12 +21,12 @@
   },
   "if": {
     "prefix": "if",
-    "description": "if operator",
+    "description": "check if the condition is true and run the specified commands",
     "body": ["if ${1:condition}", "\t${2:command ...}", "end"]
   },
   "if-else": {
     "prefix": "if-else",
-    "description": "if-else operator",
+    "description": "check if the condition is true and run the first set of commands, and the second one otherwise",
     "body": [
       "if ${1:condition}",
       "\t${2:command ...}",
@@ -35,91 +35,99 @@
       "end"
     ]
   },
-  "if-less": {
-    "prefix": "if-less",
-    "description": "if with number comparison ([l]ess [t]han])",
+  "if-less-than": {
+    "prefix": ["if-less-than", "iflt"],
+    "description": "check if the first number is [l]ess [t]han the second one and if true run the specified set of commands",
     "body": [
-      "if test \"${1:first-expression}\" -lt \"${2:second-expression}\"",
+      "if test \"${1:first-number}\" -lt \"${2:second-number}\"",
       "\t${3:command ...}",
       "end"
     ]
   },
-  "if-greater": {
-    "prefix": "if-greater",
-    "description": "if with number comparison ([g]reater [t]han])",
+  "if-greater-than": {
+    "prefix": ["if-greater-than", "ifgt"],
+    "description": "check if the first number is [g]reater [t]han the second one and if true run the specified set of commands",
     "body": [
-      "if test \"${1:first-expression}\" -gt \"${2:second-expression}\"",
+      "if test \"${1:first-number}\" -gt \"${2:second-number}\"",
       "\t${3:command ...}",
       "end"
     ]
   },
   "if-less-or-equal": {
-    "prefix": "if-less-or-equal",
-    "description": "if with number comparison ([l]ess or [e]qual to)",
+    "prefix": ["if-less-or-equal", "ifle"],
+    "description": "check if the first number is [l]ess than or [e]qual to the second one and if true run the specified set of commands",
     "body": [
-      "if test \"${1:first-expression}\" -le \"${2:second-expression}\"",
+      "if test \"${1:first-number}\" -le \"${2:second-number}\"",
       "\t${3:command ...}",
       "end"
     ]
   },
   "if-greater-or-equal": {
-    "prefix": "if-greater-or-equal",
-    "description": "if with number comparison ([g]reater or [e]qual to)",
+    "prefix": ["if-greater-or-equal", "ifge"],
+    "description": "check if the first number is [g]reater than or [e]qual to the second one and if true run the specified set of commands",
     "body": [
-      "if test \"${1:first-expression}\" -ge \"${2:second-expression}\"",
+      "if test \"${1:first-number}\" -ge \"${2:second-number}\"",
       "\t${3:command ...}",
       "end"
     ]
   },
-  "if-equal": {
-    "prefix": "if-equal",
-    "description": "if with number comparison ([eq]ual to)",
+  "if-equal-to": {
+    "prefix": ["if-equal-to", "ifeq"],
+    "description": "check if the first number is [eq]ual to the second one and if true run the specified set of commands",
     "body": [
-      "if test \"${1:first-expression}\" -eq \"${2:second-expression}\"",
+      "if test \"${1:first-number}\" -eq \"${2:second-number}\"",
       "\t${3:command ...}",
       "end"
     ]
   },
-  "if-not-equal": {
-    "prefix": "if-not-equal",
-    "description": "if with number comparison ([n]ot [e]qual to)",
+  "if-not-equal-to": {
+    "prefix": ["if-not-equal-to", "ifne"],
+    "description": "check if the first number is [n]ot [e]qual to the second one and if true run the specified set of commands",
     "body": [
-      "if test \"${1:first-expression}\" -ne \"${2:second-expression}\"",
+      "if test \"${1:first-number}\" -ne \"${2:second-number}\"",
       "\t${3:command ...}",
       "end"
     ]
   },
-  "if-string-equal": {
-    "prefix": "if-string-equal",
-    "description": "if with string comparison",
+  "if-string-equal-to": {
+    "prefix": ["if-string-equal-to", "ifseq"],
+    "description": "check if the first [s]tring is [eq]ual to the second one and if true run the specified set of commands",
     "body": [
-      "if test \"${1:first-expression}\" = \"${2:second-expression}\"",
+      "if test \"${1:first-string}\" = \"${2:second-string}\"",
       "\t${3:command ...}",
       "end"
     ]
   },
-  "if-string-not-equal": {
-    "prefix": "if-string-not-equal",
-    "description": "if with string comparison",
+  "if-string-not-equal-to": {
+    "prefix": ["if-string-not-equal-to", "ifsne"],
+    "description": "check if the first [s]tring is [n]ot [e]qual to the second one and if true run the specified set of commands",
     "body": [
-      "if test \"${1:first-expression}\" != \"${2:second-expression}\"",
+      "if test \"${1:first-string}\" != \"${2:second-string}\"",
       "\t${3:command ...}",
       "end"
     ]
   },
   "if-string-empty": {
-    "prefix": "if-string-empty",
-    "description": "if with string comparison (has [z]ero length)",
-    "body": ["if test -z \"${1:expression}\"", "\t${2:command ...}", "end"]
-  },
+    "prefix": ["if-string-empty", "ifz"],
+    "description": "check if the string has [z]ero characters inside it (empty) and if true run the specified set of commands",
+    "body": [
+      "if test -z \"${1:string}\"",
+      "\t${2:command ...}",
+    "prefix": ["if-string-not-empty", "ifn"],
+    "description": "check if the string is [n]ot empty and if true run the specified set of commands",
+    "body": [
+      "if test -n \"${1:string}\"",
+      "\t${2:command ...}",
+      "end"
+    ]
   "if-string-not-empty": {
     "prefix": "if-string-not-empty",
     "description": "if with string comparison ([n]ot empty)",
     "body": ["if test -n \"${1:expression}\"", "\t${2:command ...}", "end"]
   },
   "if-defined": {
-    "prefix": "if-defined",
-    "description": "if with variable existence check",
+    "prefix": ["if-defined", "ifd"],
+    "description": "check if the variable [d]efined and if true run the specified set of commands",
     "body": [
       "if set ${1|-q,--query|} \"${2:variable}\"",
       "\t${3:command ...}",
@@ -127,8 +135,8 @@
     ]
   },
   "if-not-defined": {
-    "prefix": "if-not-defined",
-    "description": "if with variable existence check",
+    "prefix": ["if-not-defined", "ifnd"],
+    "description": "check if the variable [n]ot [d]efined and if true run the specified set of commands",
     "body": [
       "if not set ${1|-q,--query|} \"${2:variable}\"",
       "\t${3:command ...}",
