@@ -451,19 +451,14 @@
     ]
   },
   "begin": {
-    "prefix": "begin",
-    "description": "block",
-    "body": ["begin", "    ${1:command ...}", "end"]
+    "prefix": ["begin", "be"],
+    "description": "group commands",
+    "body": ["begin", "\t${1:command ...}", "end"]
   },
   "begin-redirected": {
-    "prefix": "begin-redirected",
-    "description": "block redirected",
-    "body": ["begin", "    ${1:command ...}", "end > ${2:file}"]
-  },
-  "begin-stderr-redirected": {
-    "prefix": "begin-stderr-redirected",
-    "description": "block redirected",
-    "body": ["begin", "    ${1:command ...}", "end 2> ${2:file}"]
+    "prefix": ["begin-redirected", "ber"],
+    "description": "group commands and redirect their output",
+    "body": ["begin", "\t${1:command ...}", "end ${2|>,2>|} ${3:file}"]
   },
   "set": {
     "prefix": "set",
