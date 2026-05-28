@@ -151,10 +151,6 @@
       "\t${2:command ...}",
       "end"
     ]
-  "if-string-not-empty": {
-    "prefix": "if-string-not-empty",
-    "description": "if with string comparison ([n]ot empty)",
-    "body": ["if test -n \"${1:expression}\"", "\t${2:command ...}", "end"]
   },
   "if-defined": {
     "prefix": ["if-defined", "ifd"],
