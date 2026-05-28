@@ -312,12 +312,12 @@
   },
   "for": {
     "prefix": "for",
-    "description": "for operator",
+    "description": "run the specified commands iterating thought items",
     "body": ["for ${1:item} in ${2:expression}", "\t${3:command ...}", "end"]
   },
   "for-range": {
     "prefix": ["for-range", "forr"],
-    "description": "iterate over the number [r]ange",
+    "description": "run the specified set of commands iterating over the number [r]ange",
     "body": [
       "for ${1:item} in $(seq ${2:from} ${3:to})",
       "\t${4:command ...}",
@@ -326,7 +326,7 @@
   },
   "for-stepped-range": {
     "prefix": ["for-stepped-range", "forsr"],
-    "description": "iterate over the [s]tepped number [r]ange",
+    "description": "run the specified set of commands iterating over the [s]tepped number [r]ange",
     "body": [
       "for ${1:item} in $(seq ${2:from} ${3:step} ${4:to})",
       "\t${5:command ...}",
@@ -335,8 +335,8 @@
   },
   "for-files": {
     "prefix": ["for-files", "forf"],
-    "description": "iterate over [f]iles",
-    "body": ["for ${1:item} in *.${3:extension}", "\t${4:command ...}", "end"]
+    "description": "run the specified set of commands iterating over [f]iles",
+    "body": ["for ${1:item} in *.${2:extension}", "\t${3:command ...}", "end"]
   },
   "switch": {
     "prefix": "switch",
