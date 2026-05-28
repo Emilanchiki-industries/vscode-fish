@@ -536,17 +536,17 @@
   },
   "file-newer-than": {
     "prefix": ["file-newer-than", "nt"],
-    "description": "test if the first file is newer, or the first file exists and the second doesn't",
+    "description": "test if the first file is [n]ewer [t]han the second one, or the first file exists and the second doesn't",
     "body": ["test \"${1:first-file}\" -nt \"${2:second-file}\""]
   },
   "file-older-than": {
     "prefix": ["file-older-than", "ot"],
-    "description": "test if the second file is newer, or the second file exists and the first doesn't",
+    "description": "test if the first file is [o]lder [t]han the second one, or the first file doesn't exist and the second does",
     "body": ["test \"${1:first-file}\" -ot \"${2:second-file}\""]
   },
   "file-equal-to": {
     "prefix": ["file-equal-to", "ef"],
-    "description": "test if two file references refer to the same one",
+    "description": "test if two [f]ile references are [e]qual (refer to the same file)",
     "body": ["test \"${1:first-file}\" -ef \"${2:second-file}\""]
   },
   "less-than": {
