@@ -175,95 +175,134 @@
     ]
   },
   "while": {
-    "prefix": "while",
-    "description": "while operator",
+    "prefix": ["while", "w"],
+    "description": "[w]hile the condition is true run the specified commands",
     "body": ["while ${1:condition}", "\t${2:command ...}", "end"]
   },
-  "while-less": {
-    "prefix": "while-less",
-    "description": "while with number comparison ([l]ess [t]han])",
+  "while-file-newer-than": {
+    "prefix": ["while-file-newer-than", "wnt"],
+    "description": "[w]hile the first file is newer, or the first file exists and the second doesn't, run the specified set of commands",
     "body": [
-      "while test \"${1:first-expression}\" -lt \"${2:second-expression}\"",
+      "while test \"${1:first-file}\" -nt \"${2:second-file}\"",
       "\t${3:command ...}",
       "end"
     ]
   },
-  "while-greater": {
-    "prefix": "while-greater",
-    "description": "while with number comparison ([g]reater [t]han])",
+  "while-file-older-than": {
+    "prefix": ["while-file-older-than", "wot"],
+    "description": "[w]hile the second file is newer, or the second file exists and the first doesn't, run the specified set of commands",
     "body": [
-      "while test \"${1:first-expression}\" -gt \"${2:second-expression}\"",
+      "while test \"${1:first-file}\" -ot \"${2:second-file}\"",
+      "\t${3:command ...}",
+      "end"
+    ]
+  },
+  "while-file-equal-to": {
+    "prefix": ["while-file-equal-to", "wef"],
+    "description": "[w]hile two file references refer to the same one, run the specified set of commands",
+    "body": [
+      "while test \"${1:first-file}\" -ef \"${2:second-file}\"",
+      "\t${3:command ...}",
+      "end"
+    ]
+  },
+  "while-less-than": {
+    "prefix": ["while-less-than", "wlt"],
+    "description": "[w]hile the first number is [l]ess [t]han the second one run the specified set of commands",
+    "body": [
+      "while test \"${1:first-number}\" -lt \"${2:second-number}\"",
+      "\t${3:command ...}",
+      "end"
+    ]
+  },
+  "while-greater-than": {
+    "prefix": ["while-greater-than", "wgt"],
+    "description": "[w]hile the first number is [g]reater [t]han the second one run the specified set of commands",
+    "body": [
+      "while test \"${1:first-number}\" -gt \"${2:second-number}\"",
       "\t${3:command ...}",
       "end"
     ]
   },
   "while-less-or-equal": {
-    "prefix": "while-less-or-equal",
-    "description": "while with number comparison ([l]ess or [e]qual to)",
+    "prefix": ["while-less-or-equal", "wle"],
+    "description": "[w]hile the first number is [l]ess than or [e]qual to the second one run the specified set of commands",
     "body": [
-      "while test \"${1:first-expression}\" -le \"${2:second-expression}\"",
+      "while test \"${1:first-number}\" -le \"${2:second-number}\"",
       "\t${3:command ...}",
       "end"
     ]
   },
   "while-greater-or-equal": {
-    "prefix": "while-greater-or-equal",
-    "description": "while with number comparison ([g]reater or [e]qual to)",
+    "prefix": ["while-greater-or-equal", "wge"],
+    "description": "[w]hile the first number is [g]reater than or [e]qual to the second one run the specified set of commands",
     "body": [
-      "while test \"${1:first-expression}\" -ge \"${2:second-expression}\"",
+      "while test \"${1:first-number}\" -ge \"${2:second-number}\"",
       "\t${3:command ...}",
       "end"
     ]
   },
-  "while-equal": {
-    "prefix": "while-equal",
-    "description": "while with number comparison ([eq]ual to)",
+  "while-equal-to": {
+    "prefix": ["while-equal-to", "weq"],
+    "description": "[w]hile the first number is [eq]ual to the second one run the specified set of commands",
     "body": [
-      "while test \"${1:first-expression}\" -eq \"${2:second-expression}\"",
+      "while test \"${1:first-number}\" -eq \"${2:second-number}\"",
       "\t${3:command ...}",
       "end"
     ]
   },
-  "while-not-equal": {
-    "prefix": "while-not-equal",
-    "description": "while with number comparison ([n]ot [e]qual to)",
+  "while-not-equal-to": {
+    "prefix": ["while-not-equal-to", "wne"],
+    "description": "[w]hile the first number is [n]ot [e]qual to the second one run the specified set of commands",
     "body": [
-      "while test \"${1:first-expression}\" -ne \"${2:second-expression}\"",
+      "while test \"${1:first-number}\" -ne \"${2:second-number}\"",
       "\t${3:command ...}",
       "end"
     ]
   },
-  "while-string-equal": {
-    "prefix": "while-string-equal",
-    "description": "while with string comparison",
+  "while-string-equal-to": {
+    "prefix": ["while-string-equal-to", "wseq"],
+    "description": "[w]hile the first [s]tring is [eq]ual to the second one run the specified set of commands",
     "body": [
-      "while test \"${1:first-expression}\" = \"${2:second-expression}\"",
+      "while test \"${1:first-string}\" = \"${2:second-string}\"",
       "\t${3:command ...}",
       "end"
     ]
   },
-  "while-string-not-equal": {
-    "prefix": "while-string-not-equal",
-    "description": "while with string comparison",
+  "while-string-not-equal-to": {
+    "prefix": ["while-string-not-equal-to", "wsne"],
+    "description": "[w]hile the first [s]tring is [n]ot [e]qual to the second one run the specified set of commands",
     "body": [
-      "while test \"${1:first-expression}\" != \"${2:second-expression}\"",
+      "while test \"${1:first-string}\" != \"${2:second-string}\"",
       "\t${3:command ...}",
       "end"
     ]
   },
   "while-string-empty": {
-    "prefix": "while-string-empty",
-    "description": "while with string comparison (has [z]ero length)",
-    "body": ["while test -z \"${1:expression}\"", "\t${2:command ...}", "end"]
+    "prefix": ["while-string-empty", "wz"],
+    "description": "[w]hile the string has [z]ero characters inside it (empty) run the specified set of commands",
+    "body": [
+      "while test -z \"${1:string}\"",
+      "\t${2:command ...}",
+      "end"
+    ]
   },
   "while-string-not-empty": {
-    "prefix": "while-string-not-empty",
-    "description": "while with string comparison ([n]ot empty)",
-    "body": ["while test -n \"${1:expression}\"", "\t${2:command ...}", "end"]
+    "prefix": ["while-string-not-empty", "wn"],
+    "description": "[w]hile the string is [n]ot empty run the specified set of commands",
+    "body": [
+      "while test -n \"${1:string}\"",
+      "\t${2:command ...}",
+      "end"
+    ]
+      "while test -n \"${1:string}\"",
+      "\t${2:command ...}",
+      "end"
+    ]
   },
   "while-defined": {
-    "prefix": "while-defined",
-    "description": "while with variable existence check",
+    "prefix": ["while-defined", "wd"],
+    "description": "[w]hile the variable [d]efined run the specified set of commands",
     "body": [
       "while set ${1|-q,--query|} \"${2:variable}\"",
       "\t${3:command ...}",
@@ -271,8 +310,8 @@
     ]
   },
   "while-not-defined": {
-    "prefix": "while-not-defined",
-    "description": "while with variable existence check",
+    "prefix": ["while-not-defined", "wnd"],
+    "description": "[w]hile the variable [n]ot [d]efined run the specified set of commands",
     "body": [
       "while not set ${1|-q,--query|} \"${2:variable}\"",
       "\t${3:command ...}",
