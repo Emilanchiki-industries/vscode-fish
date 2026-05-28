@@ -477,8 +477,8 @@
     "description": "test if the second file is newer, or the second file exists and the first doesn't",
     "body": ["test \"${1:first-file}\" -ot \"${2:second-file}\""]
   },
-  "test-file-ef": {
-    "prefix": ["equal-files", "ef"],
+  "file-equal-to": {
+    "prefix": ["file-equal-to", "ef"],
     "description": "test if two file references refer to the same one",
     "body": ["test \"${1:first-file}\" -ef \"${2:second-file}\""]
   },
