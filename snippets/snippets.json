@@ -25,8 +25,8 @@
     "body": ["if ${1:condition}", "\t${2:command ...}", "end"]
   },
   "if-else": {
-    "prefix": "if-else",
-    "description": "check if the condition is true and run the first set of commands, and the second one otherwise",
+    "prefix": ["if-else", "ife"],
+    "description": "check if the condition is true and run the first set of commands, and the second one oth[e]rwise",
     "body": [
       "if ${1:condition}",
       "\t${2:command ...}",
@@ -37,7 +37,7 @@
   },
   "if-file-newer-than": {
     "prefix": ["if-file-newer-than", "ifnt"],
-    "description": "check if the first file is newer, or the first file exists and the second doesn't, and if true run the specified set of commands",
+    "description": "check if the first file is [n]ewer [t]han the second one, or the first file exists and the second doesn't, and if true run the specified set of commands",
     "body": [
       "if test \"${1:first-file}\" -nt \"${2:second-file}\"",
       "\t${3:command ...}",
@@ -46,7 +46,7 @@
   },
   "if-file-older-than": {
     "prefix": ["if-file-older-than", "ifot"],
-    "description": "check if the second file is newer, or the second file exists and the first doesn't, and if true run the specified set of commands",
+    "description": "check if the first file is [o]lder [t]han the second one, or the first file doesn't exist and the second does, and if true run the specified set of commands",
     "body": [
       "if test \"${1:first-file}\" -ot \"${2:second-file}\"",
       "\t${3:command ...}",
@@ -55,7 +55,7 @@
   },
   "if-file-equal-to": {
     "prefix": ["if-file-equal-to", "ifef"],
-    "description": "check if two file references refer to the same one, and if true run the specified set of commands",
+    "description": "check if two [f]ile references are [e]qual (refer to the same file), and if true run the specified set of commands",
     "body": [
       "if test \"${1:first-file}\" -ef \"${2:second-file}\"",
       "\t${3:command ...}",
@@ -171,13 +171,13 @@
     ]
   },
   "while": {
-    "prefix": ["while", "w"],
-    "description": "[w]hile the condition is true run the specified commands",
+    "prefix": "while",
+    "description": "while the condition is true run the specified commands",
     "body": ["while ${1:condition}", "\t${2:command ...}", "end"]
   },
   "while-file-newer-than": {
-    "prefix": ["while-file-newer-than", "wnt"],
-    "description": "[w]hile the first file is newer, or the first file exists and the second doesn't, run the specified set of commands",
+    "prefix": ["while-file-newer-than", "whilent"],
+    "description": "while the first file is [n]ewer [t]han the second one, or the first file exists and the second doesn't, run the specified set of commands",
     "body": [
       "while test \"${1:first-file}\" -nt \"${2:second-file}\"",
       "\t${3:command ...}",
@@ -185,8 +185,8 @@
     ]
   },
   "while-file-older-than": {
-    "prefix": ["while-file-older-than", "wot"],
-    "description": "[w]hile the second file is newer, or the second file exists and the first doesn't, run the specified set of commands",
+    "prefix": ["while-file-older-than", "whileot"],
+    "description": "while the first file is [o]lder [t]han the second one, or the first file doesn't exist and the second does, run the specified set of commands",
     "body": [
       "while test \"${1:first-file}\" -ot \"${2:second-file}\"",
       "\t${3:command ...}",
@@ -194,8 +194,8 @@
     ]
   },
   "while-file-equal-to": {
-    "prefix": ["while-file-equal-to", "wef"],
-    "description": "[w]hile two file references refer to the same one, run the specified set of commands",
+    "prefix": ["while-file-equal-to", "whileef"],
+    "description": "while two [f]ile references are [e]qual (refer to the same file), run the specified set of commands",
     "body": [
       "while test \"${1:first-file}\" -ef \"${2:second-file}\"",
       "\t${3:command ...}",
@@ -203,8 +203,8 @@
     ]
   },
   "while-less-than": {
-    "prefix": ["while-less-than", "wlt"],
-    "description": "[w]hile the first number is [l]ess [t]han the second one run the specified set of commands",
+    "prefix": ["while-less-than", "whilelt"],
+    "description": "while the first number is [l]ess [t]han the second one run the specified set of commands",
     "body": [
       "while test \"${1:first-number}\" -lt \"${2:second-number}\"",
       "\t${3:command ...}",
@@ -212,8 +212,8 @@
     ]
   },
   "while-greater-than": {
-    "prefix": ["while-greater-than", "wgt"],
-    "description": "[w]hile the first number is [g]reater [t]han the second one run the specified set of commands",
+    "prefix": ["while-greater-than", "whilegt"],
+    "description": "while the first number is [g]reater [t]han the second one run the specified set of commands",
     "body": [
       "while test \"${1:first-number}\" -gt \"${2:second-number}\"",
       "\t${3:command ...}",
@@ -221,8 +221,8 @@
     ]
   },
   "while-less-or-equal": {
-    "prefix": ["while-less-or-equal", "wle"],
-    "description": "[w]hile the first number is [l]ess than or [e]qual to the second one run the specified set of commands",
+    "prefix": ["while-less-or-equal", "whilele"],
+    "description": "while the first number is [l]ess than or [e]qual to the second one run the specified set of commands",
     "body": [
       "while test \"${1:first-number}\" -le \"${2:second-number}\"",
       "\t${3:command ...}",
@@ -230,8 +230,8 @@
     ]
   },
   "while-greater-or-equal": {
-    "prefix": ["while-greater-or-equal", "wge"],
-    "description": "[w]hile the first number is [g]reater than or [e]qual to the second one run the specified set of commands",
+    "prefix": ["while-greater-or-equal", "whilege"],
+    "description": "while the first number is [g]reater than or [e]qual to the second one run the specified set of commands",
     "body": [
       "while test \"${1:first-number}\" -ge \"${2:second-number}\"",
       "\t${3:command ...}",
@@ -239,8 +239,8 @@
     ]
   },
   "while-equal-to": {
-    "prefix": ["while-equal-to", "weq"],
-    "description": "[w]hile the first number is [eq]ual to the second one run the specified set of commands",
+    "prefix": ["while-equal-to", "whileeq"],
+    "description": "while the first number is [eq]ual to the second one run the specified set of commands",
     "body": [
       "while test \"${1:first-number}\" -eq \"${2:second-number}\"",
       "\t${3:command ...}",
@@ -248,8 +248,8 @@
     ]
   },
   "while-not-equal-to": {
-    "prefix": ["while-not-equal-to", "wne"],
-    "description": "[w]hile the first number is [n]ot [e]qual to the second one run the specified set of commands",
+    "prefix": ["while-not-equal-to", "whilene"],
+    "description": "while the first number is [n]ot [e]qual to the second one run the specified set of commands",
     "body": [
       "while test \"${1:first-number}\" -ne \"${2:second-number}\"",
       "\t${3:command ...}",
@@ -257,8 +257,8 @@
     ]
   },
   "while-string-equal-to": {
-    "prefix": ["while-string-equal-to", "wseq"],
-    "description": "[w]hile the first [s]tring is [eq]ual to the second one run the specified set of commands",
+    "prefix": ["while-string-equal-to", "whileseq"],
+    "description": "while the first [s]tring is [eq]ual to the second one run the specified set of commands",
     "body": [
       "while test \"${1:first-string}\" = \"${2:second-string}\"",
       "\t${3:command ...}",
@@ -266,8 +266,8 @@
     ]
   },
   "while-string-not-equal-to": {
-    "prefix": ["while-string-not-equal-to", "wsne"],
-    "description": "[w]hile the first [s]tring is [n]ot [e]qual to the second one run the specified set of commands",
+    "prefix": ["while-string-not-equal-to", "whilesne"],
+    "description": "while the first [s]tring is [n]ot [e]qual to the second one run the specified set of commands",
     "body": [
       "while test \"${1:first-string}\" != \"${2:second-string}\"",
       "\t${3:command ...}",
@@ -275,8 +275,8 @@
     ]
   },
   "while-string-empty": {
-    "prefix": ["while-string-empty", "wz"],
-    "description": "[w]hile the string has [z]ero characters inside it (empty) run the specified set of commands",
+    "prefix": ["while-string-empty", "whilez"],
+    "description": "while the string has [z]ero characters inside it (empty) run the specified set of commands",
     "body": [
       "while test -z \"${1:string}\"",
       "\t${2:command ...}",
@@ -284,8 +284,8 @@
     ]
   },
   "while-string-not-empty": {
-    "prefix": ["while-string-not-empty", "wn"],
-    "description": "[w]hile the string is [n]ot empty run the specified set of commands",
+    "prefix": ["while-string-not-empty", "whilen"],
+    "description": "while the string is [n]ot empty run the specified set of commands",
     "body": [
       "while test -n \"${1:string}\"",
       "\t${2:command ...}",
@@ -293,8 +293,8 @@
     ]
   },
   "while-defined": {
-    "prefix": ["while-defined", "wd"],
-    "description": "[w]hile the variable [d]efined run the specified set of commands",
+    "prefix": ["while-defined", "whiled"],
+    "description": "while the variable [d]efined run the specified set of commands",
     "body": [
       "while set ${1|-q,--query|} \"${2:variable}\"",
       "\t${3:command ...}",
@@ -302,8 +302,8 @@
     ]
   },
   "while-not-defined": {
-    "prefix": ["while-not-defined", "wnd"],
-    "description": "[w]hile the variable [n]ot [d]efined run the specified set of commands",
+    "prefix": ["while-not-defined", "whilend"],
+    "description": "while the variable [n]ot [d]efined run the specified set of commands",
     "body": [
       "while not set ${1|-q,--query|} \"${2:variable}\"",
       "\t${3:command ...}",
