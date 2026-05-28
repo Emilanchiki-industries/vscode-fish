@@ -339,7 +339,7 @@
     "body": ["for ${1:item} in *.${2:extension}", "\t${3:command ...}", "end"]
   },
   "switch": {
-    "prefix": ["switch2", "sw2"],
+    "prefix": "switch2",
     "description": "find the first matching pattern out of 2 available (including the default fallback) and run the specified commands corresponding to it",
     "body": [
       "switch \"${1:expression}\"",
@@ -351,7 +351,7 @@
     ]
   },
   "switch3": {
-    "prefix": ["switch3", "sw3"],
+    "prefix": "switch3",
     "description": "find the first matching pattern out of 3 available (including the default fallback) and run the specified commands corresponding to it",
     "body": [
       "switch \"${1:expression}\"",
@@ -365,7 +365,7 @@
     ]
   },
   "switch4": {
-    "prefix": ["switch4", "sw4"],
+    "prefix": "switch4",
     "description": "find the first matching pattern out of 4 available (including the default fallback) and run the specified commands corresponding to it",
     "body": [
       "switch \"${1:expression}\"",
@@ -381,7 +381,7 @@
     ]
   },
   "switch5": {
-    "prefix": ["switch5", "sw5"],
+    "prefix": "switch5",
     "description": "find the first matching pattern out of 5 available (including the default fallback) and run the specified commands corresponding to it",
     "body": [
       "switch \"${1:expression}\"",
@@ -399,7 +399,7 @@
     ]
   },
   "switch6": {
-    "prefix": ["switch6", "sw6"],
+    "prefix": "switch6",
     "description": "find the first matching pattern out of 6 available (including the default fallback) and run the specified commands corresponding to it",
     "body": [
       "switch \"${1:expression}\"",
