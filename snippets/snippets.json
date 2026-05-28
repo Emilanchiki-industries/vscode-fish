@@ -405,13 +405,13 @@
     "description": "string replacement with [r]egex ([a]ll)",
     "body": "string replace ${1|-a,--all|} ${2|-r,--regex|} -- '${3:pattern}' '${4:replacement}' ${5:argument ...}"
   },
-  "test-file-nt": {
-    "prefix": ["newer-than-file", "nt"],
+  "file-newer-than": {
+    "prefix": ["file-newer-than", "nt"],
     "description": "test if the first file is newer, or the first file exists and the second doesn't",
     "body": ["test \"${1:first-file}\" -nt \"${2:second-file}\""]
   },
-  "test-file-ot": {
-    "prefix": ["older-than-file", "ot"],
+  "file-older-than": {
+    "prefix": ["file-older-than", "ot"],
     "description": "test if the second file is newer, or the second file exists and the first doesn't",
     "body": ["test \"${1:first-file}\" -ot \"${2:second-file}\""]
   },
