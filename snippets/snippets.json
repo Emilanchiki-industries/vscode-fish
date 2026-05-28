@@ -463,13 +463,13 @@
     "body": "test -n \"${1:string}\""
   },
   "defined": {
-    "prefix": "defined",
-    "description": "variable existence check",
+    "prefix": ["defined", "d"],
+    "description": "test if the variable [d]efined",
     "body": "set ${1|-q,--query|} \"${2:variable}\""
   },
   "not-defined": {
-    "prefix": "not-defined",
-    "description": "variable existence check",
+    "prefix": ["not-defined", "nd"],
+    "description": "test if the variable [n]ot [d]efined",
     "body": "not set ${1|-q,--query|} \"${2:variable}\""
   },
   "parse": {
