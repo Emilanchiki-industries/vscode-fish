@@ -5,7 +5,9 @@ set -g theme_title_display_process yes
 abbr -a yt yarn test
 abbr -a brs bin/rspec
 abbr -a hpr hub pull-request --no-edit --browse
-
+if   test 1 -lt 2
+    command ...
+end
 function cat --wraps cat
     if type -q bat
         bat $argv
